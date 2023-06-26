@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto - Russia</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="page">
+    <header class="header">
+      <img
+        src="./images/logo.svg"
+        alt="логотип 'Место-Россия'"
+        class="header__logo"
+      />
+    </header>
+
+    <main class="content">
+      <section class="profile">
+        <div class="profile__avatar"></div>
+        <div class="profile__info">
+          <div class="profile__person">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__btn-edit"></button>
+          </div>
+          <p class="profile__about">Исследователь океана</p>
+        </div>
+        <button type="button" class="profile__btn-add"></button>
+      </section>
+      <section class="gallery">
+        <article class="gallery__item">
+          <img
+            src="./images/Dektyarsk.jpg"
+            alt="Водопад около Дегтярска"
+            class="gallery__photo"
+          />
+          <div class="gallery__info">
+            <h2 class="gallery__location">Дегтярск</h2>
+            <button type="button" class="gallery__like"></button>
+          </div>
+        </article>
+        <article class="gallery__item">
+          <img
+            src="./images/Kaliningrad.jpg"
+            alt="Дюны в Калининграде"
+            class="gallery__photo"
+          />
+          <div class="gallery__info">
+            <h2 class="gallery__location">Калининград</h2>
+            <button type="button" class="gallery__like"></button>
+          </div>
+        </article>
+        <article class="gallery__item">
+          <img
+            src="./images/Kazan.jpg"
+            alt="Панорама Казани"
+            class="gallery__photo"
+          />
+          <div class="gallery__info">
+            <h2 class="gallery__location">Казань</h2>
+            <button type="button" class="gallery__like"></button>
+          </div>
+        </article>
+        <article class="gallery__item">
+          <img
+            src="./images/Kotlin.jpg"
+            alt="Морской собор на острове Котлин город Кронштадт"
+            class="gallery__photo"
+          />
+          <div class="gallery__info">
+            <h2 class="gallery__location">Кронштадт</h2>
+            <button type="button" class="gallery__like"></button>
+          </div>
+        </article>
+        <article class="gallery__item">
+          <img
+            src="./images/Saint-Petersburg.jpg"
+            alt="Набережная Фонтанки"
+            class="gallery__photo"
+          />
+          <div class="gallery__info">
+            <h2 class="gallery__location">Санкт-Петербург</h2>
+            <button type="button" class="gallery__like"></button>
+          </div>
+        </article>
+        <article class="gallery__item">
+          <img
+            src="./images/ural.jpg"
+            alt="Уральский марс"
+            class="gallery__photo"
+          />
+          <div class="gallery__info">
+            <h2 class="gallery__location">Свердловская обл.</h2>
+            <button type="button" class="gallery__like"></button>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023. Поздеева Полина</p>
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <button type="button" class="popup__btn-close"></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form
+          action="#"
+          id="profile-form"
+          class="popup__form"
+          method="POST"
+          name="profile-form"
+        >
+          <input
+            type="text"
+            name="name"
+            class="popup__input popup__input_el_name"
+            required
+            placeholder="Введите имя"
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            name="about"
+            class="popup__input popup__input_el_about"
+            required
+            placeholder="Введите профессию"
+            autocomplete="off"
+          />
+        </form>
+        <button type="submit" form="profile-form" class="popup__btn-save">
+          Сохранить
+        </button>
+      </div>
+    </div>
+
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
