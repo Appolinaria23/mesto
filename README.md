@@ -12,6 +12,6 @@
 ## Технологии в проекте
 - JavaScript, HTML, CSS
 - флексбокс-вёрстка
-- rid Layout
+- Grid Layout
 - адаптивная верстка
 - БЭМ
