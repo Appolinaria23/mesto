@@ -18,7 +18,7 @@
       width: 20px;
       height: 20px;
       background-image: url(../../../images/Close2.svg);
-      left: 248px;
+      right: -40px;
       margin: 16px;
     }
   }

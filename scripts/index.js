@@ -10,17 +10,21 @@ let aboutProfileElement = document.querySelector('.profile__about');
 let namePopupElement = document.querySelector('.popup__input_el_name');
 let aboutPopupElemnt = document.querySelector('.popup__input_el_about');
 
-function openPopup() {
+function togglePopup() {
     popupElement.classList.toggle('popup__opened');
+}
+
+function openPopup() {
+    togglePopup();
     namePopupElement.value = nameProfileElement.textContent;
     aboutPopupElemnt.value = aboutProfileElement.textContent;
 }
 
 function editProfile(e) {
     e.preventDefault();
-    nameProfileElement.textContent = document.querySelector('.popup__input_el_name').value;
-    aboutProfileElement.textContent = document.querySelector('.popup__input_el_about').value;
-    popupElemnt.classList.toggle('popup_opened');
+    nameProfileElement.textContent = namePopupElement.value;
+    aboutProfileElement.textContent = aboutPopupElemnt.value;
+    togglePopup();
 }
 
 editButtonElement.addEventListener('click', openPopup);
