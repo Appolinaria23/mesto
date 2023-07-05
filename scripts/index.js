@@ -11,7 +11,7 @@ let namePopupElement = document.querySelector('.popup__input_el_name');
 let aboutPopupElemnt = document.querySelector('.popup__input_el_about');
 
 function togglePopup() {
-    popupElement.classList.toggle('popup__opened');
+    popupElement.classList.toggle('popup_opened');
 }
 
 function openPopup() {
@@ -28,5 +28,5 @@ function editProfile(e) {
 }
 
 editButtonElement.addEventListener('click', openPopup);
-closeButtonElement.addEventListener('click', openPopup);
-formElement.addEventListener('sumbit', editProfile);
+closeButtonElement.addEventListener('click', togglePopup);
+formElement.addEventListener('submit', editProfile);
