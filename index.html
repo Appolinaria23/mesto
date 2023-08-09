@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head> 
+  <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mesto - Russia</title>
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
+
   <body class="page">
     <header class="header">
       <img
         src="./images/logo.svg"
-        alt="логотип 'Место-Россия'"
+        alt="Логотип 'Место-Россия'"
         class="header__logo"
       />
     </header>
-
     <main class="content">
       <section class="profile">
-        <img src="images/Jacques-Yves.jpg" alt="аватар" class="profile__avatar">
+        <img
+          src="images/Jacques-Yves.jpg"
+          alt="аватар"
+          class="profile__avatar"
+        />
         <div class="profile__info">
           <div class="profile__person">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -28,93 +32,43 @@
         </div>
         <button type="button" class="profile__btn-add"></button>
       </section>
-      <section class="gallery">
-        <article class="gallery__item">
-          <img
-            src="./images/Dektyarsk.jpg"
-            alt="Водопад около Дегтярска"
-            class="gallery__photo"
-          />
-          <div class="gallery__info">
-            <h2 class="gallery__location">Дегтярск</h2>
-            <button type="button" class="gallery__like"></button>
+
+      <section class="gallery" aria-label="Фото-галерея">
+        <template id="template-gallery">
+          <div class="gallery__item">
+            <img src="#" alt="#" class="gallery__photo">
+            <div class="gallery__info">
+              <h2 class="gallery__location"></h2>
+              <button type="button" class="gallery__like gallery__btn-like"></button>
+            </div>
+            <button type="button" class="gallery__delete"></button>
           </div>
-        </article>
-        <article class="gallery__item">
-          <img
-            src="./images/Kaliningrad.jpg"
-            alt="Дюны в Калининграде"
-            class="gallery__photo"
-          />
-          <div class="gallery__info">
-            <h2 class="gallery__location">Калининград</h2>
-            <button type="button" class="gallery__like"></button>
-          </div>
-        </article>
-        <article class="gallery__item">
-          <img
-            src="./images/Kazan.jpg"
-            alt="Панорама Казани"
-            class="gallery__photo"
-          />
-          <div class="gallery__info">
-            <h2 class="gallery__location">Казань</h2>
-            <button type="button" class="gallery__like"></button>
-          </div>
-        </article>
-        <article class="gallery__item">
-          <img
-            src="./images/Kotlin.jpg"
-            alt="Морской собор на острове Котлин город Кронштадт"
-            class="gallery__photo"
-          />
-          <div class="gallery__info">
-            <h2 class="gallery__location">Кронштадт</h2>
-            <button type="button" class="gallery__like"></button>
-          </div>
-        </article>
-        <article class="gallery__item">
-          <img
-            src="./images/Saint-Petersburg.jpg"
-            alt="Набережная Фонтанки"
-            class="gallery__photo"
-          />
-          <div class="gallery__info">
-            <h2 class="gallery__location">Санкт-Петербург</h2>
-            <button type="button" class="gallery__like"></button>
-          </div>
-        </article>
-        <article class="gallery__item">
-          <img
-            src="./images/ural.jpg"
-            alt="Уральский марс"
-            class="gallery__photo"
-          />
-          <div class="gallery__info">
-            <h2 class="gallery__location">Свердловская обл.</h2>
-            <button type="button" class="gallery__like"></button>
-          </div>
-        </article>
+        </template>
+        
+        
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2023. Поздеева Полина</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup-profile">
       <div class="popup__container">
-        <button type="button" class="popup__btn-close"></button>
+        <button
+          type="button"
+          class="popup__btn-close popup-profile__btn-close"
+        ></button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <form
           action="#"
           id="profile-form"
-          class="popup__form"
+          class="popup__form popup-profile__form"
           method="POST"
           name="profile-form"
         >
           <input
             type="text"
-            name="name"
-            class="popup__input popup__input_el_name"
+            name="nameprofile"
+            class="popup__input popup__input_el_name-profile"
             required
             placeholder="Введите имя"
             autocomplete="off"
@@ -122,18 +76,75 @@
           <input
             type="text"
             name="about"
-            class="popup__input popup__input_el_about"
+            class="popup__input popup__input_el_about-profile"
             required
             placeholder="Введите профессию"
             autocomplete="off"
           />
-          <button type="submit" form="profile-form" class="popup__btn-save">
-            Сохранить
-          </button>
         </form>
+        <button
+          type="submit"
+          form="profile-form"
+          class="popup__btn-save popup-profile__btn-save"
+        >
+          Сохранить
+        </button>
       </div>
     </div>
 
+    <div class="popup popup-newimage">
+      <div class="popup__container">
+        <button
+          type="button"
+          class="popup__btn-close popup-newimage__btn-close"
+        ></button>
+        <h3 class="popup__title">Новое место</h3>
+        <form
+          action="#"
+          id="newimage-form"
+          class="popup__form popup-newimage__form"
+          method="POST"
+          name="newimage-form"
+        >
+          <input
+            type="text"
+            name="namenewimage"
+            class="popup__input popup__input_el_name-newimage"
+            required
+            placeholder="Название"
+            autocomplete="off"
+          />
+          <input
+            type="url"
+            name="about"
+            class="popup__input popup__input_el_link-newimage"
+            required
+            placeholder="Ссылка на картинку"
+            autocomplete="off"
+          />
+        </form>
+        <button
+          type="submit"
+          form="newimage-form"
+          class="popup__btn-save popup-newimage__btn-save"
+        >
+          Создать
+        </button>
+      </div>
+    </div>
+
+    <div class="popup popup-image">
+      <div class="popup-image__container">
+        <button
+          type="button"
+          class="popup__btn-close popup-image__btn-close"
+        ></button>
+        <img src="#" alt="#" class="popup-image__img" />
+        <p class="popup-image__about"></p>
+      </div>
+    </div>
+
+    <script src="./scripts/constants.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
